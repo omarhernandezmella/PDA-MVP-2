@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  root 'usuarios#index'
-  resources :usuarios
+  root 'users#index'
+  resources :users
 
 end
