@@ -11,5 +11,10 @@ Rails.application.routes.draw do
 
   root 'users#index'
   resources :users
+  resources :warm_ups
+  resources :personal_informations
+  resources :kinesiologist_details
+  resources :personal_trainer_details
+  resources :trainings
 
 end
