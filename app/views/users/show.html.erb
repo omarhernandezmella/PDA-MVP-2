@@ -1,2 +1,19 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/usuarios/show.html.erb</p>
+<!-- app/views/users/show.html.erb -->
+<div class="container mt-5">
+  <h1>User Profile</h1>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Mi usuario</h5>
+      <p><strong>Nombre usuario:</strong> <%= @user.username %></p>
+      <% if @user.personal_information %>
+        <p><strong>Peso:</strong> <%= @user.personal_information.weight %> Kg</p>
+        <p><strong>Estatura:</strong> <%= @user.personal_information.height %> cm</p>
+        <p><strong>Género:</strong> <%= @user.personal_information.gender %></p>
+        <p><strong>Actividad Física:</strong> <%= @user.personal_information.physical_activity %></p>
+      <% else %>
+        <p>No personal information available.</p>
+      <% end %>
+      <%= link_to 'Edit', edit_user_path(@user), class: 'btn btn-primary mt-3' %>
+    </div>
+  </div>
+</div>

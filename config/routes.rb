@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   root 'users#index'
-  resources :users
+  resources :users do
+    resource :personal_information, only: [:show, :edit, :update, :create]  # Singular resource as each user has one personal information
+  end
   resources :warm_ups
   resources :personal_informations
   resources :kinesiologist_details

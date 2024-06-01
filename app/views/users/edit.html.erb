@@ -1,2 +1,55 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/usuarios/edit.html.erb</p>
+<div class="container mt-5">
+  <h2>Edit User Profile</h2>
+  <%= form_with(model: @user, local: true, html: { class: 'needs-validation', novalidate: true }) do |form| %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation" class="alert alert-danger">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+        <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="mb-3">
+      <%= form.label :username, class: 'form-label' %>
+      <%= form.text_field :username, class: 'form-control', required: true %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :email, class: 'form-label' %>
+      <%= form.email_field :email, class: 'form-control', required: true %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :password, class: 'form-label' %>
+      <%= form.password_field :password, class: 'form-control', required: true, placeholder: "Enter new password or leave blank" %>
+    </div>
+
+    <h4>Personal Information</h4>
+    <%= fields_for :personal_information, @user.personal_information do |pi_form| %>
+      <div class="mb-3">
+        <%= pi_form.label :weight, class: 'form-label' %>
+        <%= pi_form.number_field :weight, class: 'form-control', required: true %>
+      </div>
+
+      <div class="mb-3">
+        <%= pi_form.label :height, class: 'form-label' %>
+        <%= pi_form.number_field :height, class: 'form-control', required: true %>
+      </div>
+
+      <div class="mb-3">
+        <%= pi_form.label :gender, class: 'form-label' %>
+        <%= pi_form.text_field :gender, class: 'form-control', required: true %>
+      </div>
+
+      <div class="mb-3">
+        <%= pi_form.label :physical_activity, class: 'form-label' %>
+        <%= pi_form.text_field :physical_activity, class: 'form-control', required: true %>
+      </div>
+    <% end %>
+
+    <%= form.submit "Update User", class: 'btn btn-success' %>
+  <% end %>
+</div>

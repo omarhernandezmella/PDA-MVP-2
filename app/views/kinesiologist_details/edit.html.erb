@@ -1,0 +1,21 @@
+<h1>Editar/Crear anuncio para kinesiólogo</h1>
+
+<%= form_for @kinesiologist_detail do |f| %>
+  <div class="field">
+    <%= f.label :profession, "Profesión" %>
+    <%= f.text_field :profession %>
+  </div>
+  <div class="field">
+    <%= f.label :education, "Educación" %> <!-- Assuming 'education' field exists -->
+    <%= f.text_field :education %>
+  </div>
+  <div class="field">
+    <%= f.label :specialty, "Especialidad" %>
+    <%= f.text_field :specialty %>
+  </div>
+  <div class="field">
+    <%= f.label :description, "Descripción" %>
+    <%= f.text_area :description %>
+  </div>
+  <%= f.submit "Guardar" %>
+<% end %>

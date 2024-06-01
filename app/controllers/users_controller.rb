@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    @user = User.includes(:personal_information).find(params[:id])
   end
 
   # GET /users/new
@@ -22,8 +23,8 @@ class UsersController < ApplicationController
   # POST /users
   def create
     @user = User.new(user_params)
-
     if @user.save
+      @user.create_personal_information(personal_info_params)  # Adjust this line based on actual implementation
       redirect_to @user, notice: 'User was successfully created.'
     else
       render :new
@@ -53,6 +54,11 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:username, :last_name, :email, :password, :role)
+      params.require(:user).permit(:username, :email, :password, personal_information_attributes: [:weight, :height, :gender, :physical_activity])
+    end
+    
+
+    def personal_info_params
+      params.require(:personal_information).permit(:weight, :height, :gender, :physical_activity)
     end
 end
