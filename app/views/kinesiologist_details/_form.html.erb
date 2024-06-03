@@ -1,0 +1,11 @@
+<%= form_with model:kinesiologist_detail , local: true do |f| %>
+  <div class="form-group mb-3">
+    <%= f.label :education, "Educación" %>
+    <%= f.text_field :education, class: "form-control", required: true %>
+  </div>
+  <div class="form-group mb-3">
+    <%= f.label :description, "Descripción" %>
+    <%= f.text_field :description, class: "form-control", required: true %>
+  </div>
+  <%= f.submit "Guardar" %>
+<% end %>
