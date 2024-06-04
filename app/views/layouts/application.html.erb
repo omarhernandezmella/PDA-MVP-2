@@ -51,11 +51,17 @@
             <li class="nav-item">
               <a class="nav-link custom-nav-link" href="<%= kinesiologist_details_path %>">Contactos</a>
             </li>
-          <ul class="navbar-nav ms-auto">
+            <% if user_signed_in? %>
             <li class="nav-item">
-              <a class="nav-link custom-nav-link active" aria-current="page" href="#">Iniciar sesión</a>
+              <a class="nav-link custom-nav-link" href="<%= personal_information_path(current_user) %>">Profile</a>
             </li>
-          </ul>
+            <li class="nav-item">
+              <a class="nav-link custom-nav-link"><%= button_to 'Salir', destroy_user_session_path, method: :delete %></a>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <a class="nav-link" href="<%= new_user_session_path %>">Login</a>
+          <% end %> 
 
 
       </div>

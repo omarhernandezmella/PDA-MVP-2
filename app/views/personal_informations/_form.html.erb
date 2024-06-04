@@ -1,0 +1,42 @@
+<div class="container mt-5">
+  <%= form_with(model: @personal_information, local: true, html: { class: 'needs-validation', novalidate: true }) do |form| %>
+    <% if @personal_information.errors.any? %>
+      <div id="error_explanation" class="alert alert-danger">
+        <h2><%= pluralize(@personal_information.errors.count, "error") %> prohibited this personal_information from being saved:</h2>
+        <ul>
+          <% @personal_information.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <h4>Personal Information</h4>
+    <div class="mb-3">
+      <%= form.label :weight, class: 'form-label' %>
+      <%= form.number_field :weight, class: 'form-control', required: true %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :height, class: 'form-label' %>
+      <%= form.number_field :height, class: 'form-control', required: true %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :gender, class: 'form-label' %>
+      <%= form.text_field :gender, class: 'form-control', required: true %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :physical_activity, class: 'form-label' %>
+      <%= form.text_field :physical_activity, class: 'form-control', required: true %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label "Has tenido lesiones, especifique en caso de tener", class: 'form-label' %>
+      <%= form.text_field :lesions, class: 'form-control', required: true %>
+    </div>
+
+    <%= form.submit "Save", class: 'btn btn-success' %>
+  <% end %>
+</div>

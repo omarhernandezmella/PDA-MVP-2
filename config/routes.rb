@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  root 'personal_informations#index'
+  root 'personal_informations#edit'
   resources :users do
     resource :personal_information, only: [:show, :edit, :update, :create]  # Singular resource as each user has one personal information
   end
