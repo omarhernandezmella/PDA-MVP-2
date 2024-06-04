@@ -1,6 +1,6 @@
 <div class="container mt-4">
   <div class="row">
-    <div class="col-md-6 offset-md-3">
+    <div class="col-lg-10 offset-lg-1"> <!-- Adjusted for larger width -->
       <div class="card">
         <div class="card-header bg-primary text-white">
           <h3 class="card-title mb-0"><%= @warm_up.exercise %></h3>
@@ -8,10 +8,17 @@
         <div class="card-body">
           <h5 class="card-subtitle mb-2 text-muted">Parte del entrenamiento ID: <%= @warm_up.training_id %></h5>
           <h5 class="card-subtitle mb-2 text-muted">Usuario: <%= @warm_up.training.user.username %></h5>
-          
-          <div class="btn-group" role="group" aria-label="Acciones">
-            <%= link_to 'Editar', edit_warm_up_path(@warm_up), class: 'btn btn-warning me-2' %>
-            <%= link_to 'Eliminar', @warm_up, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger me-2' %>
+
+          <% if @warm_up.youtube_video_id.present? %>
+            <!-- Larger video display area -->
+            <div class="embed-responsive embed-responsive-16by9 mt-3 mb-3">
+              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<%= @warm_up.youtube_video_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:500px;"></iframe>
+            </div>
+          <% end %>
+
+          <div class="btn-group d-flex justify-content-center mt-2" role="group" aria-label="Acciones">
+            <%= link_to 'Editar', edit_warm_up_path(@warm_up), class: 'btn btn-warning' %>
+            <%= link_to 'Eliminar', @warm_up, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger' %>
             <%= link_to 'Volver', warm_ups_path, class: 'btn btn-primary' %>
           </div>
         </div>
@@ -19,3 +26,7 @@
     </div>
   </div>
 </div>
+
+
+
+

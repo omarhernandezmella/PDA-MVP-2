@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_04_181617) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_04_224533) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -72,6 +72,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_04_181617) do
     t.bigint "training_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "youtube_video_id"
     t.index ["training_id"], name: "index_warm_ups_on_training_id"
   end
 

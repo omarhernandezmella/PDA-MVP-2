@@ -53,6 +53,7 @@ class WarmUpsController < ApplicationController
   
     # Only allow a list of trusted parameters through.
     def warm_up_params
-      params.require(:warm_up).permit(:exercise, :training_id)
+      params.require(:warm_up).permit(:exercise, :training_id, :youtube_video_id)
     end
+    
   end
