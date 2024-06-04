@@ -9,9 +9,8 @@
     <%= f.label :description, "Descripción" %>
     <%= f.text_field :description, class: "form-control", required: true %>
   </div>
-  <div class="form-group mb-3">
-    <%= f.label :user_id %>
-    <%= f.collection_select :user_id, User.all, :id, :username, {prompt: "Selecciona un usuario"}, {class: "form-control"} %>
-  </div>
+  <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.submit "Guardar" %>
 <% end %>
+
+  <%= link_to 'Mis anuncios', kinesiologist_detail_path(current_user.id), class: 'card-link btn btn-warning' %>

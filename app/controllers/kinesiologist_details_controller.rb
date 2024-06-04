@@ -8,6 +8,7 @@ class KinesiologistDetailsController < ApplicationController
 
     # GET /kinesiologist_details/1
     def show
+      @kinesiologist_detail = KinesiologistDetail.where(user_id: params[:id])
     end
 
     # GET /kinesiologist_details/new

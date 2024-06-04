@@ -7,8 +7,9 @@
       <h5 class="card-title"><%= kine.user.email %></h5>
       <h6 class="card-subtitle mb-2 text-muted"><%= kine.specialty %></h6>
       <p class="card-text"><%= kine.description %></p>
-      <%= link_to 'Edit', edit_kinesiologist_detail_path(kine), class: 'card-link btn btn-warning' %>
-      
+      <% if user_signed_in? && current_user == kine.user %>
+        <%= link_to 'Edit', edit_kinesiologist_detail_path(kine), class: 'card-link btn btn-warning' %>
+      <% end %>
   </div>
 <% end %>
 
