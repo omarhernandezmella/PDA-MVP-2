@@ -18,6 +18,7 @@ class KinesiologistDetailsController < ApplicationController
 
     # GET /kinesiologist_details/1/edit
     def edit
+      @kinesiologist_detail = KinesiologistDetail.find(params[:id])
     end
 
     # POST /kinesiologist_details
@@ -54,6 +55,6 @@ class KinesiologistDetailsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def kinesiologist_detail_params
-      params.require(:kinesiologist_detail).permit(:specialty, :description, :user_id)
+      params.require(:kinesiologist_detail).permit(:specialty, :description, :user_id, :photo_url)
     end
   end

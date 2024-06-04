@@ -1,15 +1,26 @@
 <h1>Kinesiologos</h1>
 
-<% @kinesiologist_details.each do |kine| %>
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h4 class="card-title"><%= kine.user.username %></h4>
-      <h5 class="card-title"><%= kine.user.email %></h5>
-      <h6 class="card-subtitle mb-2 text-muted"><%= kine.specialty %></h6>
-      <p class="card-text"><%= kine.description %></p>
-      <% if user_signed_in? && current_user == kine.user %>
-        <%= link_to 'Edit', edit_kinesiologist_detail_path(kine), class: 'card-link btn btn-warning' %>
-      <% end %>
-  </div>
-<% end %>
+<div class="container mt-4">
+  <div class="row">
+    <% @kinesiologist_details.each do |kine| %>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100 shadow-sm">
+          <!-- Use provided photo URL if available, otherwise fallback to placeholder -->
+          <img src="<%= kine.photo_url.present? ? kine.photo_url : 'https://via.placeholder.com/300x200' %>" alt="Kinesiologist" class="card-img-top">
 
+          <div class="card-body">
+            <h4 class="card-title"><%= kine.user.username %></h4>
+            <h5 class="card-title"><%= kine.user.email %></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= kine.specialty %></h6>
+            <p class="card-text"><%= kine.description %></p>
+          </div>
+          <div class="card-footer bg-white">
+            <% if user_signed_in? && current_user == kine.user %>
+              <%= link_to 'Edit', edit_kinesiologist_detail_path(kine), class: 'btn btn-warning' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

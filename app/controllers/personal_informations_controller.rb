@@ -52,8 +52,9 @@ class PersonalInformationsController < ApplicationController
 
     # Use callbacks to share common setup or constraints between actions.
     def set_personal_information
-      @personal_information = PersonalInformation.find(params[:id])
+      @personal_information = current_user.personal_information
     end
+    
     
 
     # Only allow a list of trusted parameters through.
