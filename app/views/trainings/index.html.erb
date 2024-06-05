@@ -1,0 +1,29 @@
+<div class="container mt-5">
+<h1 class="fancy-title font-italic">Mis entrenamientos</h1>
+<% if @trainings.any? %>
+  <%= link_to 'Crear Entrenamiento', new_training_path, class: 'btn btn-primary' %>
+  <p> </p>
+
+    <div class="row">
+      <% @trainings.each do |training| %>
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <div class="card-header bg-warning text-dark">
+              <h5><%= training.exercise %></h5>
+            </div>
+            <div class="card-body">
+              <p class="card-text"><strong>Day:</strong> <%= training.day %></p>
+              <div class="btn-group" role="group">
+                <%= link_to 'Show', training_path(training), class: 'btn btn-primary' %>
+                <%= link_to 'Edit', edit_training_path(training), class: 'btn btn-secondary' %>
+                <%= link_to 'Destroy', training, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <p>No trainings available.</p>
+  <% end %>
+</div>

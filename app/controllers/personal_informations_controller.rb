@@ -8,9 +8,12 @@ class PersonalInformationsController < ApplicationController
 
     # GET /personal_informations/1
     def show
-      @user = current_user
       @personal_information = current_user.personal_information
+      if @personal_information.nil?
+        redirect_to new_personal_information_path, notice: 'No personal information available. Please create one.'
+      end
     end
+
 
 
     # GET /personal_informations/new

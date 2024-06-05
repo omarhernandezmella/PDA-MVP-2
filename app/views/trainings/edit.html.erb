@@ -1,0 +1,17 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          <h3 class="card-title mb-0">Editar Entrenamiento</h3>
+        </div>
+        <div class="card-body">
+          <%= render 'form', training: @training %>
+        </div>
+        <div class="card-footer">
+            <%= link_to 'Volver', training_path(@training), class: 'btn btn-secondary' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

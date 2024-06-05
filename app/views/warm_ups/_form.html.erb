@@ -6,7 +6,7 @@
 
   <div class="form-group mb-3">
     <%= form.label :training_id, 'Training' %>
-    <%= form.collection_select :training_id, Training.all, :id, :id, { prompt: 'Select Training' }, class: "form-control", required: true %>
+    <%= form.collection_select :training_id, Training.all, :id, :exercise, { prompt: 'Select Exercise' }, class: "form-control", required: true %>
   </div>
 
   <div class="form-group mb-3">
@@ -16,5 +16,3 @@
 
   <%= form.submit "Submit", class: "btn btn-primary" %>
 <% end %>
-
-  

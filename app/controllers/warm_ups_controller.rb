@@ -3,7 +3,8 @@ class WarmUpsController < ApplicationController
   
     # GET /warm_ups
     def index
-      @warm_ups = WarmUp.all
+      trainings = current_user.trainings
+      @warm_ups = WarmUp.where(training_id: trainings.pluck(:id))
     end
   
     # GET /warm_ups/1

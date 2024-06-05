@@ -6,7 +6,7 @@
           <h3 class="card-title mb-0"><%= @warm_up.exercise %></h3>
         </div>
         <div class="card-body">
-          <h5 class="card-subtitle mb-2 text-muted">Parte del entrenamiento ID: <%= @warm_up.training_id %></h5>
+          <h5 class="card-subtitle mb-2 text-muted">Entrenamiento <%= @warm_up.training.exercise %></h5>
           <h5 class="card-subtitle mb-2 text-muted">Usuario: <%= @warm_up.training.user.username %></h5>
 
           <% if @warm_up.youtube_video_id.present? %>

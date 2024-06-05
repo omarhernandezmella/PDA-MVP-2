@@ -1,0 +1,21 @@
+<%= form_with(model: training, local: true) do |form| %>
+    <div class="mb-3">
+      <%= form.label :exercise, "Ejercicio", class: "form-label" %>
+      <%= form.text_field :exercise, class: "form-control" %>
+    </div>
+  
+    <div class="mb-3">
+      <%= form.label :classification, "Descripción", class: "form-label" %>
+      <%= form.text_field :classification, class: "form-control" %>
+    </div>
+  
+    <div class="mb-3">
+      <%= form.label :day, "Día", class: "form-label" %>
+      <%= form.select :day, options_for_select(['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo']), {}, class: "form-select" %>
+    </div>
+  
+    <div class="actions">
+      <%= form.submit "Guardar Entrenamiento", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+  
