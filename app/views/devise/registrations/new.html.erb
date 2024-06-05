@@ -5,12 +5,12 @@
 
 
   <div class="mb-3">
-    <%= f.label :role, class: 'form-label' %>
+    <%= f.label "Tipo de usuario", class: 'form-label' %>
     <%= f.select :role, options_for_select([['Kinesiologo', 'kine'], ['Personal trainer', 'pf'], ['Usuario Normal', 'normal']]), { autofocus: true, class: 'form-control' } %>
   </div>  
 
   <div class="mb-3">
-    <%= f.label :username, class: 'form-label' %>
+    <%= f.label "Nombre de usuario", class: 'form-label' %>
     <%= f.text_field :username, autofocus: true, autocomplete: "username", class: 'form-control' %>
   </div>
 
@@ -20,7 +20,7 @@
   </div>
 
   <div class="mb-3">
-    <%= f.label :password, class: 'form-label' %>
+    <%= f.label "Contraseña", class: 'form-label' %>
     <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %>
@@ -28,7 +28,7 @@
   </div>
 
   <div class="mb-3">
-    <%= f.label :password_confirmation, class: 'form-label' %>
+    <%= f.label "Confirmar contraseña", class: 'form-label' %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
   </div>
 

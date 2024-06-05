@@ -60,7 +60,7 @@
         </li>
         <% if user_signed_in? %>
           <li class="nav-item">
-            <a class="nav-link custom-nav-link" href="<%= personal_information_path(current_user) %>">Profile</a>
+            <a class="nav-link custom-nav-link" href="<%= personal_information_path(current_user) %>">Perfil</a>
           </li>
           <li class="nav-item">
             <%= button_to 'Salir', destroy_user_session_path, method: :delete, class: 'btn btn-danger nav-link', role: 'button' %>
@@ -80,8 +80,8 @@
       <!-- Sidebar/User Info -->
       <div class="col-md-3 sidebar-info">
         <% if @user %>
-          <h4>User Details</h4>
-          <p class="user-detail"><strong>Username:</strong> <%= @user.username %></p>
+          <h4>Detalles del usuario</h4>
+          <p class="user-detail"><strong>Nombre de usuario:</strong> <%= @user.username %></p>
           <% if @user.personal_information %>
             <p class="user-detail"><strong>Email:</strong> <%= @user.email %></p>
             <p class="user-detail"><strong>Peso:</strong> <%= @user.personal_information.weight %> Kg</p>
@@ -90,7 +90,7 @@
             <p class="user-detail"><strong>Actividad Física:</strong> <%= @user.personal_information.physical_activity %></p>
           <% end %>
         <% else %>
-          <p>User not logged in</p>
+          <p>Usuario no registrado</p>
         <% end %>
       </div>
 
