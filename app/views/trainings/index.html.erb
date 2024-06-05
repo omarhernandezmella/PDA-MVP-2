@@ -1,7 +1,7 @@
 <div class="container mt-5">
 <h1 class="fancy-title font-italic">Mis entrenamientos</h1>
+<%= link_to 'Crear Entrenamiento', new_training_path, class: 'btn btn-primary' %>
 <% if @trainings.any? %>
-  <%= link_to 'Crear Entrenamiento', new_training_path, class: 'btn btn-primary' %>
   <p> </p>
 
     <div class="row">
@@ -12,11 +12,11 @@
               <h5><%= training.exercise %></h5>
             </div>
             <div class="card-body">
-              <p class="card-text"><strong>Day:</strong> <%= training.day %></p>
+              <p class="card-text"><strong>Dia:</strong> <%= training.day %></p>
               <div class="btn-group" role="group">
-                <%= link_to 'Show', training_path(training), class: 'btn btn-primary' %>
-                <%= link_to 'Edit', edit_training_path(training), class: 'btn btn-secondary' %>
-                <%= link_to 'Destroy', training, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+                <%= link_to 'Ver', training_path(training), class: 'btn btn-primary' %>
+                <%= link_to 'Editar', edit_training_path(training), class: 'btn btn-secondary' %>
+                <%= link_to 'Eliminar', training, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
               </div>
             </div>
           </div>
@@ -24,6 +24,6 @@
       <% end %>
     </div>
   <% else %>
-    <p>No trainings available.</p>
+    <p>No hay entrenamientos disponibles.</p>
   <% end %>
 </div>

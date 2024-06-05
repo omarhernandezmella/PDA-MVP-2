@@ -12,9 +12,9 @@
           <p><strong>Género:</strong> <%= @user.personal_information.gender %></p>
           <p><strong>Actividad Física:</strong> <%= @user.personal_information.physical_activity %></p>
         <% else %>
-          <p>No personal information available.</p>
+          <p>No hay información personal disponible</p>
         <% end %>
-        <%= link_to 'Edit', edit_personal_information_path(@personal_information), class: 'btn btn-primary mt-3' %>
+        <%= link_to 'Editar', edit_personal_information_path(@personal_information), class: 'btn btn-primary mt-3' %>
       </div>
     </div>
   </div>

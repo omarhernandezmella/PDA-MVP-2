@@ -11,24 +11,24 @@
       </div>
     <% end %>
 
-    <h4>Personal Information</h4>
+    <h4>Información Personal</h4>
     <div class="mb-3">
-      <%= form.label :weight, class: 'form-label' %>
+      <%= form.label "Peso", class: 'form-label' %>
       <%= form.number_field :weight, class: 'form-control', required: true %>
     </div>
 
     <div class="mb-3">
-      <%= form.label :height, class: 'form-label' %>
+      <%= form.label "Estatura", class: 'form-label' %>
       <%= form.number_field :height, class: 'form-control', required: true %>
     </div>
 
     <div class="mb-3">
-      <%= form.label :gender, class: 'form-label' %>
-      <%= form.text_field :gender, class: 'form-control', required: true %>
+      <%= form.label "Género", class: 'form-label' %>
+      <%= form.select :gender, options_for_select([['Femenino', 'femenino'], ['Masculino', 'masculino'], ['Prefiero no especificar', 'otro']]), { autofocus: true, class: 'form-control' } %>
     </div>
 
     <div class="mb-3">
-      <%= form.label :physical_activity, class: 'form-label' %>
+      <%= form.label "Nivel de actividad física", class: 'form-label' %>
       <%= form.text_field :physical_activity, class: 'form-control', required: true %>
     </div>
 
@@ -37,6 +37,6 @@
       <%= form.text_field :lesions, class: 'form-control', required: true %>
     </div>
 
-    <%= form.submit "Save", class: 'btn btn-success' %>
+    <%= form.submit "Guardar", class: 'btn btn-success' %>
   <% end %>
 </div>
