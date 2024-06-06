@@ -16,6 +16,13 @@
             </div>
           <% end %>
 
+          <% if @warm_up.video.attached? %>
+            <video width="100%" height="500" controls>
+              <source src="<%= url_for(@warm_up.video) %>" type="video/mp4">
+              Tu navegador no soporta videos.
+            </video>
+          <% end %>
+
           <div class="btn-group d-flex justify-content-center mt-2" role="group" aria-label="Acciones">
             <%= link_to 'Editar', edit_warm_up_path(@warm_up), class: 'btn btn-warning' %>
             <%= link_to 'Eliminar', @warm_up, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger' %>
