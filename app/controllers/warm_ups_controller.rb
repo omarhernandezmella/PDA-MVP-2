@@ -14,10 +14,13 @@ class WarmUpsController < ApplicationController
     # GET /warm_ups/new
     def new
       @warm_up = WarmUp.new
+      @trainings = current_user.trainings
     end
   
     # GET /warm_ups/1/edit
     def edit
+      @warm_up = WarmUp.find(params[:id])
+      @trainings = current_user.trainings
     end
   
     # POST /warm_ups

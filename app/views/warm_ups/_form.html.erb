@@ -6,7 +6,7 @@
 
   <div class="form-group mb-3">
     <%= form.label :training_id, 'Entrenamiento' %>
-    <%= form.collection_select :training_id, Training.all, :id, :exercise, { prompt: 'Seleccione el ejercicio' }, class: "form-control", required: true %>
+    <%= form.collection_select :training_id, @trainings, :id, :exercise, { prompt: 'Seleccione el ejercicio' }, class: "form-control", required: true %>
   </div>
 
   <div class="form-group mb-3">
