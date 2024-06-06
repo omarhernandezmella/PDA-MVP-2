@@ -41,8 +41,7 @@
 </head>
 <body>
   <div class="container mt-4">
-    <h1 class="fancy-title">Lista de Videos</h1>
-    <%= link_to 'Nuevo Video', new_video_path, class: 'btn btn-primary mb-3' %>
+    <h1 class="fancy-title">Videos recomendados</h1>
     <div class="row row-cols-1 row-cols-md-3 g-4">
       <% @videos.each do |video| %>
         <div class="col">
