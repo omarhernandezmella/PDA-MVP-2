@@ -10,7 +10,6 @@
     <%= f.text_field :description, class: "form-control", required: true %>
   </div>
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.submit "Guardar" %>
+  <%= f.submit "Guardar", class: "btn btn-primary" %>
 <% end %>
 
-  <%= link_to 'Mis anuncios', kinesiologist_detail_path(current_user.id), class: 'card-link btn btn-warning' %>

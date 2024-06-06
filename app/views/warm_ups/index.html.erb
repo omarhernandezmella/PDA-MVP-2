@@ -12,8 +12,8 @@
 <body>
   <div class="container mt-4">
     <h1 class="fancy-title">Mis Calentamientos</h1>
-  <%= link_to 'Nuevo calentamiento', new_warm_up_path, class: 'btn btn-primary mt-4' %>
-  <p> </p>
+    <%= link_to 'Nuevo calentamiento', new_warm_up_path, class: 'btn btn-primary mt-4' %>
+    <p> </p>
 
     <div class="row">
       <% @warm_ups.each do |warm_up| %>
@@ -23,8 +23,16 @@
               <h5 class="card-title"><%= warm_up.exercise %></h5>
             </div>
             <div class="card-body">
-              <p class="card-text">Parte del entrenamiento ID: <%= warm_up.training_id %></p>
               <p class="card-text">Usuario: <%= warm_up.training.user.username %></p>
+              <!-- Mostrar información básica sobre el video si está presente -->
+              <% if warm_up.videos.any? %>
+                <p class="card-text">Videos:</p>
+                <ul>
+                  <% warm_up.videos.each do |video| %>
+                    <li><%= video.title %></li>
+                  <% end %>
+                </ul>
+              <% end %>
               <a href="<%= warm_up_path(warm_up) %>" class="btn btn-primary">Ver detalle</a>
               <a href="<%= edit_warm_up_path(warm_up) %>" class="btn btn-secondary">Editar</a>
             </div>

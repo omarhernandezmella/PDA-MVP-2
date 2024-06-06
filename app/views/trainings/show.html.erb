@@ -1,36 +1,30 @@
-<div class="container mt-4">
-  <div class="row">
-    <div class="col-lg-10 offset-lg-1"> <!-- Ajustado para un ancho mayor -->
-      <div class="card">
-        <div class="card-header bg-primary text-white">
-          <h3 class="card-title mb-0">Detalles del Entrenamiento</h3>
-        </div>
-        <div class="card-body">
-          <h5 class="card-subtitle mb-2 text-muted">Ejercicio: <%= @training.exercise %></h5>
-          <h5 class="card-subtitle mb-2 text-muted">Usuario: <%= @training.user.username %></h5>
-          
-          <h5 class="card-subtitle mb-2 text-muted">Calentamientos:</h5>
-          <% @training.warm_ups.each do |warm_up| %>
-            <div class="card mb-3">
-              <div class="card-header bg-warning">
-                <h5 class="card-title"><%= warm_up.exercise %></h5>
-              </div>
-              <div class="card-body">
-                <% if warm_up.youtube_video_id.present? %>
-                  <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<%= warm_up.youtube_video_id %>" allowfullscreen></iframe>
-                  </div>
-                <% end %>
-              </div>
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header bg-primary text-white">
+      <h1 class="fancy-title font-italic">Detalles del Entrenamiento</h1>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><%= @training.exercise %></h5>
+      <p class="card-text"><strong>Día:</strong> <%= @training.day %></p>
+      <h5 class="card-subtitle mb-2 text-muted">Descripción:</h5>
+      <p class="card-text"><%= @training.classification %></p>
+      <h5 class="card-subtitle mb-2 text-muted">Calentamientos:</h5>
+      <% @training.warm_ups.each do |warm_up| %>
+        <div class="card mb-3">
+          <div class="card-header bg-warning">
+            <h5 class="card-title"><%= warm_up.exercise %></h5>
+          </div>
+          <div class="card-body">
+            <div class="d-grid">
+              <%= link_to 'Ver Calentamiento', warm_up_path(warm_up), class: 'btn btn-outline-primary btn-sm' %>
             </div>
-          <% end %>
-
-          <div class="btn-group d-flex justify-content-center mt-2" role="group" aria-label="Acciones">
-            <%= link_to 'Editar', edit_training_path(@training), class: 'btn btn-warning' %>
-            <%= link_to 'Eliminar', @training, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger' %>
-            <%= link_to 'Volver', trainings_path, class: 'btn btn-primary' %>
           </div>
         </div>
+      <% end %>
+      <div class="d-grid gap-2">
+        <%= link_to 'Editar', edit_training_path(@training), class: 'btn btn-secondary' %>
+        <%= link_to 'Eliminar', @training, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger' %>
+        <%= link_to 'Volver', trainings_path, class: 'btn btn-primary' %>
       </div>
     </div>
   </div>

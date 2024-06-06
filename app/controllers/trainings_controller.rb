@@ -8,7 +8,9 @@ class TrainingsController < ApplicationController
 
   # GET /trainings/1
   def show
+    @training = Training.find(params[:id])
   end
+  
 
   # GET /trainings/new
   def new

@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   resources :personal_trainer_details
   resources :trainings
 
+  resources :videos  # Agregar esta línea para los videos
+
 end

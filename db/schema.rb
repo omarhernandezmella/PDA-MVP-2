@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_06_011554) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_06_015605) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -97,12 +97,27 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_06_011554) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "videos", force: :cascade do |t|
+    t.string "title"
+    t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "warm_up_videos", force: :cascade do |t|
+    t.bigint "warm_up_id", null: false
+    t.bigint "video_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["video_id"], name: "index_warm_up_videos_on_video_id"
+    t.index ["warm_up_id"], name: "index_warm_up_videos_on_warm_up_id"
+  end
+
   create_table "warm_ups", force: :cascade do |t|
     t.string "exercise"
     t.bigint "training_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "youtube_video_id"
     t.index ["training_id"], name: "index_warm_ups_on_training_id"
   end
 
@@ -112,5 +127,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_06_011554) do
   add_foreign_key "personal_informations", "users"
   add_foreign_key "personal_trainer_details", "users"
   add_foreign_key "trainings", "users"
+  add_foreign_key "warm_up_videos", "videos"
+  add_foreign_key "warm_up_videos", "warm_ups"
   add_foreign_key "warm_ups", "trainings"
 end
